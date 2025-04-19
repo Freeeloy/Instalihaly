@@ -1,1 +1,22 @@
-sds
+# Download & Run the last update of Instalihaly.exe
+
+# Define the URL of the LastUpdate file
+$lastUpdateUrl = "https://raw.githubusercontent.com/Freeeloy/Instalihaly/refs/heads/main/Downloader/LastUpdate"
+
+# Fetch the content of the LastUpdate file
+$lastUpdateContent = Invoke-RestMethod -Uri $lastUpdateUrl -Method Get
+
+# Extract the download_url from the JSON content
+$downloadUrl = $lastUpdateContent.download_url
+
+# Define the output filename
+$outputFile = "Instalihaly.exe"
+
+# Download the file from the download_url
+Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile
+
+# Run the downloaded file
+Start-Process -FilePath $outputFile
+
+# Exit the PowerShell script
+exit
